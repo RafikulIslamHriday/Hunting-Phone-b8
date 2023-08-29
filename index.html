@@ -1,29 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phone Hunter</title>
-    
-<link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
     <header>
-        <h2 class="text-6xl">Phone Hunter</h2>
+      <h2 class="text-6xl">Phone Hunter</h2>
     </header>
     <!-- ,main -->
-    <main>
+    <main class="container mx-auto mt-8 px-10">
+      <!-- search -->
+      <section>
+        <div class="join">
+          <input
+            class="input input-bordered join-item"
+            id="search-input"
+            placeholder="search"
+          />
+          <button class="btn join-item" onclick="handelSearch()">Search</button>
+        </div>
+      </section>
+      <!-- loader -->
+      <div class="text-center my-40 hidden" id="loading-spinner">
+        <span class="loading loading-spinner text-neutral"></span>
+      </div>
+      <!-- phone -->
+      <section>
+        <div
+          id="phone-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        ></div>
+        <div class="hidden" id="show-all-container">
+          <button class="btn btn-primary" onclick="handleShowAll()">
+            Show All
+          </button>
+        </div>
+      </section>
 
+      <!-- show datails modal -->
+      <!-- Open the modal using ID.showModal() method -->
+      <button class="btn" onclick="show_details_modal.showModal()">open modal</button>
+      <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+        <form method="dialog" class="modal-box" >
+        <div class="flex flex-col justify-center items-center" id="modal-body"></div>
+          <div class="modal-action justify-center">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </div>
+        </form>
+      </dialog>
     </main>
 
     <!-- footer -->
-    <footer>
-
-    </footer>
-
+    <footer></footer>
 
     <!-- script -->
     <script src="script/phone.js"></script>
-</body>
+  </body>
 </html>
+
